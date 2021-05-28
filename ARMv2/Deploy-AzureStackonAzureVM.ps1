@@ -1,6 +1,6 @@
 <#PSScriptInfo
 
-.VERSION 0.2.1.2
+.VERSION 0.2.1.3
 
 .GUID 523642c3-73da-49a0-8ae8-08b835c426e2
 
@@ -218,7 +218,7 @@ function DownloadWithRetry([string] $Uri, [string] $DownloadLocation, [int] $Ret
 
 #region variables
 
-$templateUri = "https://raw.githubusercontent.com/yagmurs/AzureStack-VM-PoC/master/ARMv2/azuredeploy.json"
+$templateUri = "https://raw.githubusercontent.com/TheBlackMini/AzureStack-VM-PoC/2102.09/ARMv2/azuredeploy.json"
 $sleepTimer = 60
 $container = "asdk"
 $saPrefix = "asdk"
