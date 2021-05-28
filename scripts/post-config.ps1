@@ -81,7 +81,7 @@ $writeLogParams = @{
     LogFilePath = $logFileFullPath
 }
 
-$branchFullPath = "https://raw.githubusercontent.com/yagmurs/AzureStack-VM-PoC/$branch"
+$branchFullPath = "https://raw.githubusercontent.com/TheBlackMini/AzureStack-VM-PoC/$branch"
 
 DownloadWithRetry -Uri "$branchFullPath/scripts/ASDKHelperModule.psm1" -DownloadLocation "$defaultLocalPath\ASDKHelperModule.psm1"
 DownloadWithRetry -Uri "$branchFullPath/scripts/testedVersions" -DownloadLocation "$defaultLocalPath\testedVersions"
@@ -167,7 +167,7 @@ if ($ASDKConfiguratorObject)
 
             #download configurator
             [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-            Invoke-Webrequest http://bit.ly/configasdk -UseBasicParsing -OutFile (Join-Path -Path $AsdkConfigurator.path -ChildPath ConfigASDK.ps1) -Verbose
+            Invoke-Webrequest http://bit.ly/AzSPoC -UseBasicParsing -OutFile (Join-Path -Path $AsdkConfigurator.path -ChildPath AzSPoC.ps1) -Verbose
 
             #download iso files
             if ($ASDKConfiguratorParams.IsoPath2019)
@@ -188,7 +188,7 @@ if ($ASDKConfiguratorObject)
 Import-Module "$defaultLocalPath\ASDKHelperModule.psm1" -ErrorAction Stop
 New-Item -ItemType Directory -Path $($ASDKConfiguratorParams.downloadPath) -Force -Verbose
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-Invoke-Webrequest http://bit.ly/configasdk -UseBasicParsing -OutFile $($AsdkConfigurator.path)\ConfigASDK.ps1 -Verbose
+Invoke-Webrequest http://bit.ly/AzSPoC -UseBasicParsing -OutFile $($AsdkConfigurator.path)\AzSPoC.ps1 -Verbose
 
 "@
 
@@ -275,7 +275,9 @@ if ($AzureImage) {
     }
     else
     {
-        $latestASDK = (findLatestASDK -asdkURIRoot "https://azurestack.azureedge.net/asdk" -asdkFileList $AsdkFileList)[0]
+        #This is currently broken. Defaulting to latest known.
+        #$latestASDK = (findLatestASDK -asdkURIRoot "https://azurestack.azureedge.net/asdk" -asdkFileList $AsdkFileList)[0]
+        $latestASDK = "1.2102.0.9"
     }
     
     if ($AutoDownloadASDK -eq "true") {
