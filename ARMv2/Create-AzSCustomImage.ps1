@@ -4,11 +4,11 @@
 Install-WindowsFeature Hyper-V -IncludeManagementTools -Restart
 
 $defaultLocalPath = "C:\AzureStackOnAzureVM"
-$versionContainerName = "1910-58"
+$versionContainerName = "2102-09"
 $version = $versionContainerName.split("-")[0]
 
 New-Item -Path $defaultLocalPath -ItemType Directory
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/yagmurs/AzureStack-VM-PoC/development/scripts/ASDKHelperModule.psm1" -OutFile "$defaultLocalPath\ASDKHelperModule.psm1"
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/TheBlackMini/AzureStack-VM-PoC/2102.09/scripts/ASDKHelperModule.psm1" -OutFile "$defaultLocalPath\ASDKHelperModule.psm1"
 Import-Module "$defaultLocalPath\ASDKHelperModule.psm1" -Force
 $asdkDownloadPath = "d:\"
 $asdkExtractFolder = "Azure Stack Development Kit"
@@ -39,5 +39,5 @@ cd D:\azcopy\*
 
 $env:AZCOPY_CRED_TYPE = "Anonymous";
 
-./azcopy.exe copy "$d\$vhd" "https://<Azure Blob Storage Prefix>.blob.core.windows.net/template-vhd/asdk1910.vhd?<SAS token>" --overwrite=prompt --follow-symlinks --recursive --from-to=LocalBlob --blob-type=PageBlob --put-md5;
+./azcopy.exe copy "$d\$vhd" "https://<Azure Blob Storage Prefix>.blob.core.windows.net/template-vhd/asdk2102.vhd?<SAS token>" --overwrite=prompt --follow-symlinks --recursive --from-to=LocalBlob --blob-type=PageBlob --put-md5;
 $env:AZCOPY_CRED_TYPE = "";
