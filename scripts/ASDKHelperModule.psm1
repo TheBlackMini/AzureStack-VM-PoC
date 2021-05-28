@@ -142,7 +142,7 @@ function ASDKDownloader
         $AsdkFileList,
 
         [string]
-        $ASDKURIRoot = "https://azurestack.azureedge.net/asdk",
+        $ASDKURIRoot = "https://azurestackhub.azureedge.net/PR/download/asdk_",
 
         [string]
         $Version,
