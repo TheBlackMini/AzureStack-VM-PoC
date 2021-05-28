@@ -99,11 +99,11 @@
             }
         },
         "postConfigScriptLocation": { 
-            "defaultValue": "https://raw.githubusercontent.com/yagmurs/AzureStack-VM-PoC/master/scripts",
+            "defaultValue": "https://raw.githubusercontent.com/TheBlackMini/AzureStack-VM-PoC/2102.09/scripts",
             "type": "string",
             "metadata": {
                 "description": "the post config script location",
-                "name": "https://raw.githubusercontent.com/yagmurs/AzureStack-VM-PoC/master/scripts"
+                "name": "https://raw.githubusercontent.com/TheBlackMini/AzureStack-VM-PoC/2102.09/scripts"
             }
         },
         "postConfigScriptFilename": { 
