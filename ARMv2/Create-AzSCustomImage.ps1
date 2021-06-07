@@ -8,7 +8,7 @@ $versionContainerName = "1910-58"
 $version = $versionContainerName.split("-")[0]
 
 New-Item -Path $defaultLocalPath -ItemType Directory
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/yagmurs/AzureStack-VM-PoC/development/scripts/ASDKHelperModule.psm1" -OutFile "$defaultLocalPath\ASDKHelperModule.psm1"
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/TheBlackMini/AzureStack-VM-PoC/development/scripts/ASDKHelperModule.psm1" -OutFile "$defaultLocalPath\ASDKHelperModule.psm1"
 Import-Module "$defaultLocalPath\ASDKHelperModule.psm1" -Force
 $asdkDownloadPath = "d:\"
 $asdkExtractFolder = "Azure Stack Development Kit"
