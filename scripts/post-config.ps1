@@ -68,8 +68,8 @@ function DownloadWithRetry([string] $Uri, [string] $DownloadLocation, [int] $Ret
 }
 
 
-$size = Get-Volume -DriveLetter c | Get-PartitionSupportedSize
-Resize-Partition -DriveLetter c -Size $size.sizemax
+#$size = Get-Volume -DriveLetter c | Get-PartitionSupportedSize
+#Resize-Partition -DriveLetter c -Size $size.sizemax
 
 $defaultLocalPath = "C:\AzureStackOnAzureVM"
 New-Item -Path $defaultLocalPath -ItemType Directory -Force
